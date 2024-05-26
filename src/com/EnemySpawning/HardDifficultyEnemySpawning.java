@@ -6,7 +6,7 @@ import com.Entities.*;
 import com.Handlers.*;
 import com.Main.Game;
 
-public class HardSpawning {
+public class HardDifficultyEnemySpawning {
 
 	public static void spawnHard(Random r, Game game, Spawner spawner, EntityHandler entityHandler) { //TODO: Switch case
 		if (GameHandler.getLevel() == 1) {

@@ -3,18 +3,18 @@ package com.Handlers;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-import com.States.ID;
+import com.States.ObjectID;
 
 public abstract class GameObject {
 	
     protected int x;
     protected int y;
     protected int boxSize = 16;
-    protected ID id;
+    protected ObjectID id;
     protected float velX;
     protected float velY;
     
-    public GameObject(int x, int y, ID id) {
+    public GameObject(int x, int y, ObjectID id) {
         this.x = x;
         this.y = y;
         this.id = id;
@@ -42,11 +42,11 @@ public abstract class GameObject {
         return y;
     }
     
-    public void setId(ID id) {
+    public void setId(ObjectID id) {
         this.id = id;
     }
     
-    public ID getId() {
+    public ObjectID getId() {
         return id;
     }
     

@@ -3,7 +3,7 @@ package com.Entities;
 import java.awt.*;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class Trail extends GameObject {
 	
@@ -17,7 +17,7 @@ public class Trail extends GameObject {
     Color color;
     
     public Trail(int x, int y, Color color, int width, int height, float life, EntityHandler entityHandler) {
-        super(x, y, ID.Trail);
+        super(x, y, ObjectID.Trail);
         this.entityHandler = entityHandler;
         this.color = color;
         this.width = width;

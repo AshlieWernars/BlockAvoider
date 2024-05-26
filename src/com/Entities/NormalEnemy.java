@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.Random;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class NormalEnemy extends GameObject {
 	
@@ -18,7 +18,7 @@ public class NormalEnemy extends GameObject {
     private final Random r;
     
     public NormalEnemy(int x, int y, EntityHandler entityHandler, Random r) {
-        super(x, y, ID.NormalEnemy);
+        super(x, y, ObjectID.NormalEnemy);
         this.entityHandler = entityHandler;
         this.r = r;
         velX = 5;

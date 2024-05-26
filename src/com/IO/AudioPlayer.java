@@ -7,9 +7,9 @@ import javax.sound.sampled.*;
 public class AudioPlayer {
 	
 	//Classes
-	AudioInputStream audioInputStream;
-	FloatControl gainControl;
-	Clip clip;
+	private AudioInputStream audioInputStream;
+	private FloatControl gainControl;
+	private Clip clip;
 
 	public AudioPlayer(String path) {
 		try {
@@ -34,12 +34,20 @@ public class AudioPlayer {
 	}
 	
 	public void start() {
+		if(clip == null) {
+			return;
+		}
+		
 		if(!clip.isActive()) {
 			clip.start();
 		}
 	}
 	
 	public void stop() {
+		if(clip == null) {
+			return;
+		}
+		
 		if(clip.isActive()) {
 			clip.stop();
 		}

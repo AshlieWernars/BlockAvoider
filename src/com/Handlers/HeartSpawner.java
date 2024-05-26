@@ -7,18 +7,18 @@ import com.Entities.Heart;
 
 public class HeartSpawner {
 
-	//Pre-Defined Var's
+	// Pre-Defined Var's
 	private final float healthRestoreFromHeart = 10f;
 	private final int timerMaxTime = 600;
 	private final int timer2MaxTime = 600;
 	private final int MinHeartSpawnLevel = 7;
 
-	//Var
-	public int timer; //How long it take before a heart spawns
-	int timer2 = timer2MaxTime; //How long a Heart stays
+	// Var
+	public int timer; // How long it take before a heart spawns
+	int timer2 = timer2MaxTime; // How long a Heart stays
 	boolean doesHeartExist = false;
 
-	//Classes
+	// Classes
 	private Heart heart;
 	private final EntityHandler entityHandler;
 	private final Random r;
@@ -29,24 +29,24 @@ public class HeartSpawner {
 	}
 
 	public void tick() {
-		if(GameHandler.getLevel() >= MinHeartSpawnLevel && !DoesHeartexist() && timer <= 0) {
+		if (GameHandler.getLevel() >= MinHeartSpawnLevel && !DoesHeartexist() && timer <= 0) {
 			heart = new Heart(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, this);
 			setHeartExistsTrue();
 			System.out.println("Heart Spawned At: X:" + heart.getX() + " Y:" + heart.getY());
-		} else if(GameHandler.getLevel() >= MinHeartSpawnLevel && DoesHeartexist()) {
+		} else if (GameHandler.getLevel() >= MinHeartSpawnLevel && DoesHeartexist()) {
 			timer2--;
 			playerHeartCollision();
 			if (timer2 <= 0) {
 				deleteHeart();
 				System.out.println("Heart Removed");
 			}
-		} else if(GameHandler.getLevel() >= MinHeartSpawnLevel){
+		} else if (GameHandler.getLevel() >= MinHeartSpawnLevel) {
 			timer--;
 		}
 	}
 
 	public void render(Graphics g) {
-		if(GameHandler.getLevel() >= MinHeartSpawnLevel && DoesHeartexist()) {
+		if (GameHandler.getLevel() >= MinHeartSpawnLevel && DoesHeartexist()) {
 			heart.render(g);
 		}
 	}
@@ -56,7 +56,7 @@ public class HeartSpawner {
 			return;
 		}
 		GameHandler.setHealth(GameHandler.getHealth() + healthRestoreFromHeart);
-		if(GameHandler.getHealth() > GameHandler.getMaxHealth()) {
+		if (GameHandler.getHealth() > GameHandler.getMaxHealth()) {
 			GameHandler.setHealth(GameHandler.getMaxHealth());
 		}
 		deleteHeart();
@@ -72,7 +72,7 @@ public class HeartSpawner {
 	}
 
 	public void deleteHeart() {
-		if(!doesHeartExist) {
+		if (!doesHeartExist) {
 			return;
 		}
 		entityHandler.removeObject(heart);

@@ -3,7 +3,7 @@ package com.Entities;
 import java.awt.*;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class EasyEnemy extends GameObject {
 	
@@ -12,7 +12,7 @@ public class EasyEnemy extends GameObject {
 	private final Color col = Color.magenta;
     
     public EasyEnemy(int x, int y, EntityHandler entityHandler) {
-        super(x, y, ID.EasyEnemy);
+        super(x, y, ObjectID.EasyEnemy);
         this.entityHandler = entityHandler;
         velX = 5;
         velY = 5;

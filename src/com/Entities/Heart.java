@@ -3,7 +3,7 @@ package com.Entities;
 import java.awt.*;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class Heart extends GameObject {
 	
@@ -12,7 +12,7 @@ public class Heart extends GameObject {
     HeartSpawner Heartspawner;
     
     public Heart(int x, int y, EntityHandler entityHandler, HeartSpawner Heartspawner) {
-        super(x, y, ID.Heart);
+        super(x, y, ObjectID.Heart);
         this.entityHandler = entityHandler;
         this.Heartspawner = Heartspawner;
     }

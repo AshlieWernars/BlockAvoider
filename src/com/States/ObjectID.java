@@ -1,6 +1,6 @@
 package com.States;
 
-public enum ID {
+public enum ObjectID {
 	
     Player("Player", 0), 
     EasyEnemy("EasyEnemy", 1), 
@@ -15,5 +15,5 @@ public enum ID {
     Heart("Heart", 10),
 	MiniGunBoss("MiniGunBoss", 11);
     
-    private ID(final String name, final int ordinal) {}
+    private ObjectID(final String name, final int ordinal) {}
 }

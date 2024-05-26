@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.Random;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class MenuParticle extends GameObject {
 	
@@ -13,7 +13,7 @@ public class MenuParticle extends GameObject {
 	private final Color col;
     
     public MenuParticle(int x, int y, EntityHandler entityHandler, Random r) {
-        super(x, y, ID.MenuParticle);
+        super(x, y, ObjectID.MenuParticle);
         this.entityHandler = entityHandler;
         
         //Randomizing the Velocitys and Color

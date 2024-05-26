@@ -26,15 +26,18 @@ public class File_io {
 	
 	public static ArrayList<String> readSaveFileData(String path) {
 		String[] data = loadFile(path);
+		if(data == null) {
+			System.err.println("Couldn't load Save File");
+			return null;
+		}
 		ArrayList<String> result = new ArrayList<String>();
 		for(int i = 0; i < data.length; i++) {
 			String[] temp = data[i].split(" ");
 			for(String line : temp) {
-				if(line.equals("highScore:") || line.equals("playerName:") || line.equals("0:") || line.equals("1:") || line.equals("2:") || line.equals("3:")) {
+				if(line == null || line.equals("highScore:") || line.equals("playerName:") || line.equals("0:") || line.equals("1:") || line.equals("2:") || line.equals("3:")) {
 					continue;
-				} else {
-					result.add(line);
 				}
+				result.add(line);
 			}
 		}
 		return result;

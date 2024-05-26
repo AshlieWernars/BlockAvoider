@@ -1,24 +1,31 @@
 package com.IO;
 
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 
 public class ChangeLineInFile {
 
 	public void changeALineInATextFile(String fileName, String newLine, int lineNumber) {
 		String path = "res/" + fileName + ".hacksmth";
-        String content = new String();
-        String editedContent = new String();
-        content = readFile(path);
-        editedContent = editLineInContent(content, newLine, lineNumber);
-        writeToFile(path, editedContent);
-    }
+		String content = new String();
+		String editedContent = new String();
+		content = readFile(path);
+		editedContent = editLineInContent(content, newLine, lineNumber);
+		writeToFile(path, editedContent);
+	}
 
 	private static int numberOfLinesInFile(String content) {
 		int numberOfLines = 0;
 		int index = 0;
 		int lastIndex = 0;
-		
+
 		lastIndex = content.length() - 1;
 
 		while (true) {
@@ -69,29 +76,29 @@ public class ChangeLineInFile {
 			index++;
 
 		}
-    return array;
+		return array;
 	}
 
 	private static String editLineInContent(String content, String newLine, int line) {
 
-    	int lineNumber = 0;
-    	lineNumber = numberOfLinesInFile(content);
+		int lineNumber = 0;
+		lineNumber = numberOfLinesInFile(content);
 
-    	String[] lines = new String[lineNumber];
-    	lines = turnFileIntoArrayOfStrings(content, lineNumber);
+		String[] lines = new String[lineNumber];
+		lines = turnFileIntoArrayOfStrings(content, lineNumber);
 
-    	if (line != 1) {
-        	lines[line - 1] = "\n" + newLine;
-    	} else {
-        	lines[line - 1] = newLine;
-    	}
-    	content = new String();
+		if (line != 1) {
+			lines[line - 1] = "\n" + newLine;
+		} else {
+			lines[line - 1] = newLine;
+		}
+		content = new String();
 
-    	for (int i = 0; i < lineNumber; i++) {
-    		content += lines[i];
-    	}
+		for (int i = 0; i < lineNumber; i++) {
+			content += lines[i];
+		}
 
-    	return content;
+		return content;
 	}
 
 	private static void writeToFile(String file, String content) {
@@ -113,9 +120,9 @@ public class ChangeLineInFile {
 		try {
 			reader = new FileReader(file);
 			char[] chars = new char[(int) file.length()];
-        	reader.read(chars);
-        	content = new String(chars);
-        	reader.close();
+			reader.read(chars);
+			content = new String(chars);
+			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -127,6 +134,6 @@ public class ChangeLineInFile {
 				}
 			}
 		}
-    return content;
+		return content;
 	}
 }

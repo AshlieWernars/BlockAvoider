@@ -10,29 +10,23 @@ import com.States.*;
 public class LineEnemy extends GameObject {
 	
 	//Classes
-    EntityHandler entityHandler;
-    Color col = Color.cyan;
+    private final EntityHandler entityHandler;
+    private final Color col = Color.cyan;
     
     public LineEnemy(int x, int y, EntityHandler entityHandler, Game game, Random r) {
-        super(x, y, ID.LineEnemy);
+        super(x, y, ObjectID.LineEnemy);
         this.entityHandler = entityHandler;
-        int lineState = 0;
-        if(game.difficulty == Difficulty.Easy) {
-        	lineState = r.nextInt(2);
-        } else if(game.difficulty == Difficulty.Normal) {
-        	lineState = r.nextInt(3);
-        } else if(game.difficulty == Difficulty.Hard) {
-        	lineState = 2;
-        }
-        if(lineState == 0) {
-        	velX = 0;
-        	velY = 9;
-        } else if(lineState == 1) {
-        	velX = 9;
-        	velY = 0;
-        } else if(lineState == 2) {
+        if(game.difficulty == Difficulty.Hard) {
         	velX = 2;
         	velY = 9;
+        } else {
+        	if(r.nextInt(1) == 0) {
+            	velX = 0;
+            	velY = 9;
+            } else {
+            	velX = 9;
+            	velY = 0;
+            }
         }
     }
     

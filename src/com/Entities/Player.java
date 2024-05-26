@@ -4,7 +4,7 @@ import java.awt.*;
 
 import com.Handlers.*;
 import com.Main.Game;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class Player extends GameObject {
 	
@@ -17,7 +17,7 @@ public class Player extends GameObject {
     private final EntityHandler entityHandler;
     
     public Player(int x, int y, EntityHandler entityHandler) {
-        super(x, y, ID.Player);
+        super(x, y, ObjectID.Player);
         this.entityHandler = entityHandler;
     }
     
@@ -51,9 +51,9 @@ public class Player extends GameObject {
         		continue;
         	}
         	
-            if ((tempObject.getId() == ID.EasyEnemy || tempObject.getId() == ID.NormalEnemy || tempObject.getId() == ID.LineEnemy || tempObject.getId() == ID.SmartEnemy || tempObject.getId() == ID.HardEnemy || tempObject.getId() == ID.EnemyBossBullet)) {
+            if ((tempObject.getId() == ObjectID.EasyEnemy || tempObject.getId() == ObjectID.NormalEnemy || tempObject.getId() == ObjectID.LineEnemy || tempObject.getId() == ObjectID.SmartEnemy || tempObject.getId() == ObjectID.HardEnemy || tempObject.getId() == ObjectID.EnemyBossBullet)) {
             	GameHandler.setHealth(GameHandler.getHealth() - 2);
-            } else if((tempObject.getId() == ID.EnemyBoss || tempObject.getId() == ID.MiniGunBoss)) {
+            } else if((tempObject.getId() == ObjectID.EnemyBoss || tempObject.getId() == ObjectID.MiniGunBoss)) {
             	GameHandler.setHealth(GameHandler.getHealth() - 5);
             }
     	}

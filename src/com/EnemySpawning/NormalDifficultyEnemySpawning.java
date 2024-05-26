@@ -6,7 +6,7 @@ import com.Entities.*;
 import com.Handlers.*;
 import com.Main.Game;
 
-public class NormalSpawning {
+public class NormalDifficultyEnemySpawning {
 	
 	public static void spawnNormal(Random r, Game game, Spawner spawner, EntityHandler entityHandler) { //TODO: Switch case
 		if (GameHandler.getLevel() == 1) {

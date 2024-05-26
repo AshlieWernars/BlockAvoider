@@ -5,7 +5,7 @@ import java.util.*;
 
 import com.Entities.*;
 import com.Main.*;
-import com.States.STATE;
+import com.States.GameState;
 
 public class EntityHandler {
 	
@@ -24,7 +24,7 @@ public class EntityHandler {
     	for (int i = 0; i < ObjectList.size(); i++) {
     		ObjectList.get(i).tick();
         }
-    	if(game.gameState == STATE.Game) {
+    	if(game.gameState == GameState.Game) {
     		player.tick();
     	}
     }
@@ -33,7 +33,7 @@ public class EntityHandler {
     	for (int i = 0; i < ObjectList.size(); i++) {
     		ObjectList.get(i).render(g);
         }
-    	if(game.gameState == STATE.Game) {
+    	if(game.gameState == GameState.Game) {
     		player.render(g);
     	}
     }
@@ -41,7 +41,7 @@ public class EntityHandler {
     public void clearEnemys(boolean gameEnded) {
     	ObjectList.clear();
     	if(gameEnded) {
-    		for(int i = 0; i < 35; i++) {
+    		for(int i = 0; i < 25; i++) {
     			ObjectList.add(new MenuParticle(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), this, r));
     		}
     		player = null;

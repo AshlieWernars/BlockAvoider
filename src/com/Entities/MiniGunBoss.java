@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.Random;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class MiniGunBoss extends GameObject {
 	
@@ -15,7 +15,7 @@ public class MiniGunBoss extends GameObject {
 	private final Random r;
 	
 	public MiniGunBoss(EntityHandler entityHandler, Random r) {
-		super(GameHandler.colWidth - (GameHandler.colWidth / 2 + (Size / 2)), GameHandler.colHeight - (GameHandler.colHeight / 2 + (Size / 2)), ID.MiniGunBoss);
+		super(GameHandler.colWidth - (GameHandler.colWidth / 2 + (Size / 2)), GameHandler.colHeight - (GameHandler.colHeight / 2 + (Size / 2)), ObjectID.MiniGunBoss);
 		this.entityHandler = entityHandler;
 		this.r = r;
 	}

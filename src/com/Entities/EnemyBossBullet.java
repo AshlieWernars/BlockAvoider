@@ -3,7 +3,7 @@ package com.Entities;
 import java.awt.*;
 
 import com.Handlers.*;
-import com.States.ID;
+import com.States.ObjectID;
 
 public class EnemyBossBullet extends GameObject {
 	
@@ -12,7 +12,7 @@ public class EnemyBossBullet extends GameObject {
     Color col = Color.red;
     
     public EnemyBossBullet(int x, int y, float velX, float velY, EntityHandler entityHandler) {
-        super(x, y, ID.EnemyBossBullet);
+        super(x, y, ObjectID.EnemyBossBullet);
         this.entityHandler = entityHandler;
         
         this.velX = velX;
