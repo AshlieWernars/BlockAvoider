@@ -38,7 +38,6 @@ public class Spawner {
 			GameHandler.setLevel(GameHandler.getLevel() + 1);
 			System.out.println("Level: " + GameHandler.getLevel());
 
-			// TODO: Switch case
 			if (game.difficulty == Difficulty.Easy) {
 				EasyDifficultyEnemySpawning.spawnEasy(r, game, this, entityHandler);
 			} else if (game.difficulty == Difficulty.Normal) {
@@ -91,7 +90,6 @@ public class Spawner {
 		GameHandler.setLevel(0);
 		entityHandler.clearEnemys(true);
 
-		// TODO: Switch case
 		if (game.difficulty == Difficulty.Easy) {
 			File_io.ChangeLine(GameHandler.saveFilePath, 2, "0: true highScore: " + GameHandler.getScore());
 		} else if (game.difficulty == Difficulty.Normal) {
@@ -115,7 +113,6 @@ public class Spawner {
 		setLost(true);
 		game.bossTimedText.setAlive(false);
 
-		// TODO: Switch case
 		if (game.difficulty == Difficulty.Easy) {
 			if (Integer.parseInt(GameHandler.saveFileData.get(2)) < GameHandler.getScore()) {
 				File_io.ChangeLine(GameHandler.saveFilePath, 2, "0: " + GameHandler.saveFileData.get(1) + " highScore: " + GameHandler.getScore());

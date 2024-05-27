@@ -73,7 +73,7 @@ public class Input implements KeyListener, MouseListener {
 
 		// TODO: Disable This Before A Release Build
 		if (e.getKeyCode() == KeyEvent.VK_E) {
-			GameHandler.setLevel(GameHandler.getLevel() + 7);
+			GameHandler.setLevel(GameHandler.getLevel() + 5);
 			System.err.println("*DEBUG* " + "LEVEL SET TO " + GameHandler.getLevel());
 		}
 		if (e.getKeyCode() == KeyEvent.VK_Q) {
