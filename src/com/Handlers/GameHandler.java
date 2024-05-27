@@ -38,8 +38,8 @@ public class GameHandler {
 		}
 	}
 
-	public static void resetSaveFileData() {
-		File_io.ChangeLine(saveFilePath, 1, "playerName: *************");
+	public static void resetSaveFileData(String playerName) {
+		File_io.ChangeLine(saveFilePath, 1, "playerName: " + playerName);
 		File_io.ChangeLine(saveFilePath, 2, "0: false highScore: 00000");
 		File_io.ChangeLine(saveFilePath, 3, "1: false highScore: 00000");
 		File_io.ChangeLine(saveFilePath, 4, "2: false highScore: 00000");

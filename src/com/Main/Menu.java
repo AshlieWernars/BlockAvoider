@@ -74,6 +74,7 @@ public class Menu {
 		} else if (difficulty == Difficulty.FreeMode) {
 			handler.addObject(new NormalEnemy(r.nextInt(GameHandler.colWidth), r.nextInt(GameHandler.colHeight), handler, r));
 		}
+		GameHandler.setScore(0);
 		game.gameState = GameState.Game;
 		game.difficulty = difficulty;
 		heartSpawner.timer = 0;

@@ -36,6 +36,7 @@ public class Spawner {
 		if (scoreKeep >= 500) {
 			scoreKeep = 0;
 			GameHandler.setLevel(GameHandler.getLevel() + 1);
+			System.out.println("Level: " + GameHandler.getLevel());
 
 			// TODO: Switch case
 			if (game.difficulty == Difficulty.Easy) {
@@ -103,7 +104,6 @@ public class Spawner {
 		GameHandler.setHealth(GameHandler.getMaxHealth());
 		setLost(false);
 		game.bossTimedText.setAlive(false);
-		GameHandler.setScore(0);
 	}
 
 	public void gameEndLoss() {
@@ -133,7 +133,6 @@ public class Spawner {
 				File_io.ChangeLine(GameHandler.saveFilePath, 5, "3: " + GameHandler.saveFileData.get(7) + " highScore: " + GameHandler.getScore());
 			}
 		}
-		GameHandler.setScore(0);
 	}
 
 	public boolean DoesBossExists() {

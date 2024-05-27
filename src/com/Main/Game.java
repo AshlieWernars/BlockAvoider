@@ -49,9 +49,6 @@ public class Game extends Canvas {
 		// backGroundMusic.setVolume(-20f);
 		// backGroundMusic.start();
 
-		// GameHandler.printSaveFileData();
-		// GameHandler.resetSaveFileData();
-
 		// MenuParticles
 		for (int i = 0; i < 25; ++i) {
 			entityHandler.addObject(new MenuParticle(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, r));
