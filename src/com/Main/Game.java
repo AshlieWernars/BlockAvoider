@@ -36,7 +36,7 @@ public class Game extends Canvas {
 	private final HeartSpawner heartSpawner = new HeartSpawner(entityHandler, r);
 	private final Spawner spawner = new Spawner(entityHandler, this, r, heartSpawner);
 	private final Menu menu = new Menu(this, entityHandler, spawner, r, heartSpawner);
-	private final Input input = new Input(entityHandler, menu, this, heartSpawner);
+	private final Input input = new Input(entityHandler, menu, this, spawner);
 	// public final AudioPlayer backGroundMusic = new AudioPlayer("res/Music.wav");
 	public GameState gameState = GameState.Menu;
 	public Difficulty difficulty;

@@ -13,20 +13,21 @@ public class LineEnemy extends GameObject {
     private final EntityHandler entityHandler;
     private final Color col = Color.cyan;
     
-    public LineEnemy(int x, int y, EntityHandler entityHandler, Game game, Random r) {
+    public LineEnemy(int x, int y, EntityHandler entityHandler, Game game, Random r, boolean line) {
         super(x, y, ObjectID.LineEnemy);
         this.entityHandler = entityHandler;
-        if(game.difficulty == Difficulty.Hard) {
-        	velX = 2;
-        	velY = 9;
-        } else {
-        	if(r.nextInt(1) == 0) {
+        
+        if(line) {
+        	if(r.nextInt(2) == 1) {
             	velX = 0;
             	velY = 9;
             } else {
             	velX = 9;
             	velY = 0;
             }
+        } else {
+        	velX = 2;
+        	velY = 9;
         }
     }
     

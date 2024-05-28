@@ -11,10 +11,10 @@ public class FreeModeSpawning {
 	public static void spawnFreeMode(Random r, Game game, Spawner spawner, EntityHandler entityHandler) {
 		switch (GameHandler.getLevel()) {
 		case 1:
-			entityHandler.addObject(new LineEnemy(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, game, r));
+			entityHandler.addObject(new LineEnemy(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, game, r, false));
 			break;
 		case 5:
-			entityHandler.addObject(new LineEnemy(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, game, r));
+			entityHandler.addObject(new LineEnemy(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, game, r, false));
 			break;
 		case 10:
 			spawner.spawnEnemyBoss();

@@ -5,9 +5,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import com.EnemySpawning.Spawner;
 import com.Handlers.EntityHandler;
 import com.Handlers.GameHandler;
-import com.Handlers.HeartSpawner;
 import com.Main.Game;
 import com.Main.Menu;
 import com.States.GameState;
@@ -21,13 +21,13 @@ public class Input implements KeyListener, MouseListener {
 	private final EntityHandler entityHandler;
 	private final Menu menu;
 	private final Game game;
-	private final HeartSpawner heartSpawner;
+	private final Spawner spawner;
 
-	public Input(EntityHandler entityHandler, Menu menu, Game game, HeartSpawner heartSpawner) {
+	public Input(EntityHandler entityHandler, Menu menu, Game game, Spawner spawner) {
 		this.entityHandler = entityHandler;
 		this.menu = menu;
 		this.game = game;
-		this.heartSpawner = heartSpawner;
+		this.spawner = spawner;
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -57,13 +57,7 @@ public class Input implements KeyListener, MouseListener {
 
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			if (game.gameState == GameState.Game || game.gameState == GameState.End) {
-				game.gameState = GameState.Menu;
-				game.paused = false;
-				entityHandler.clearEnemys(true);
-				heartSpawner.deleteHeart();
-				GameHandler.setHealth(GameHandler.getMaxHealth());
-				GameHandler.setScore(0);
-				GameHandler.setLevel(0);
+				spawner.endGame();
 			} else if (game.gameState == GameState.Help || game.gameState == GameState.Select) {
 				game.gameState = GameState.Menu;
 			} else if (game.gameState == GameState.Menu) {

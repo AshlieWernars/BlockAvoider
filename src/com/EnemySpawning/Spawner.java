@@ -2,13 +2,15 @@ package com.EnemySpawning;
 
 import java.util.Random;
 
-import com.Entities.*;
+import com.Entities.EnemyBoss;
+import com.Entities.MiniGunBoss;
 import com.Handlers.EntityHandler;
 import com.Handlers.GameHandler;
 import com.Handlers.HeartSpawner;
 import com.IO.File_io;
 import com.Main.Game;
-import com.States.*;
+import com.States.Difficulty;
+import com.States.GameState;
 
 public class Spawner {
 
@@ -85,10 +87,7 @@ public class Spawner {
 	}
 
 	public void gameEndWin() {
-		heartSpawner.deleteHeart();
-		game.gameState = GameState.End;
-		GameHandler.setLevel(0);
-		entityHandler.clearEnemys(true);
+		endGame(false);
 
 		if (game.difficulty == Difficulty.Easy) {
 			File_io.ChangeLine(GameHandler.saveFilePath, 2, "0: true highScore: " + GameHandler.getScore());
@@ -99,19 +98,11 @@ public class Spawner {
 		} else if (game.difficulty == Difficulty.FreeMode) {
 			File_io.ChangeLine(GameHandler.saveFilePath, 5, "3: true highScore: " + GameHandler.getScore());
 		}
-		GameHandler.setHealth(GameHandler.getMaxHealth());
-		setLost(false);
-		game.bossTimedText.setAlive(false);
 	}
 
 	public void gameEndLoss() {
-		heartSpawner.deleteHeart();
-		game.gameState = GameState.End;
-		GameHandler.setHealth(GameHandler.getMaxHealth());
-		GameHandler.setLevel(0);
-		entityHandler.clearEnemys(true);
-		setLost(true);
-		game.bossTimedText.setAlive(false);
+		endGame(true);
+		
 
 		if (game.difficulty == Difficulty.Easy) {
 			if (Integer.parseInt(GameHandler.saveFileData.get(2)) < GameHandler.getScore()) {
@@ -130,6 +121,31 @@ public class Spawner {
 				File_io.ChangeLine(GameHandler.saveFilePath, 5, "3: " + GameHandler.saveFileData.get(7) + " highScore: " + GameHandler.getScore());
 			}
 		}
+	}
+	
+	private void endGame(boolean lost) {
+		heartSpawner.deleteHeart();
+		game.gameState = GameState.End;
+		GameHandler.setLevel(0);
+		entityHandler.clearEnemys(true);
+		GameHandler.setHealth(GameHandler.getMaxHealth());
+		game.bossTimedText.setAlive(false);
+		scoreKeep = 0;
+		setBossExists(false);
+		setLost(lost);
+	}
+	
+	public void endGame() {
+		game.gameState = GameState.Menu;
+		game.paused = false;
+		heartSpawner.deleteHeart();
+		GameHandler.setLevel(0);
+		entityHandler.clearEnemys(true);
+		GameHandler.setHealth(GameHandler.getMaxHealth());
+		game.bossTimedText.setAlive(false);
+		scoreKeep = 0;
+		setBossExists(false);
+		setLost(lost);
 	}
 
 	public boolean DoesBossExists() {
