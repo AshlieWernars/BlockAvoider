@@ -32,8 +32,8 @@ public class EnemyBoss extends GameObject {
 		if (x <= 0 || x >= GameHandler.width - BoxSize - 20) {
 			velX *= -1;
 		}
-		x += velX;
-		y += velY;
+		x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after additions
 		if (r.nextInt(10) == 0) {
 			entityHandler.addObject(new EnemyBossBullet(x + BoxSize / 2, y + BoxSize / 2, r.nextInt(10) - 5, 5, entityHandler));
 		}

@@ -31,8 +31,8 @@ public class EasyEnemy extends GameObject {
         if (y <= 0 || y >= GameHandler.colHeight) {
         	velY *= -1;
         }
-        x += velX;
-        y += velY;
+        x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after additions
         entityHandler.addObject(new Trail(x, y, col, boxSize, boxSize, 0.04f, entityHandler));
     }
     

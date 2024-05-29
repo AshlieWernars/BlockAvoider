@@ -24,8 +24,8 @@ public class EnemyBossBullet extends GameObject {
     }
     
     public void tick() {
-    	x += velX;
-        y += velY;
+    	x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after additions
         if(x <= 0 || x >= GameHandler.colWidth) {
         	entityHandler.removeObject(this);
         }

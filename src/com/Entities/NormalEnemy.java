@@ -42,8 +42,8 @@ public class NormalEnemy extends GameObject {
         } else if(y >= GameHandler.colHeight){
         	velY = r.nextFloat(minVel, maxVel) * -1;
         }
-        x += velX;
-        y += velY;
+        x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after addition
 		entityHandler.addObject(new Trail(x, y, col, boxSize, boxSize, 0.04f, entityHandler));
     }
     

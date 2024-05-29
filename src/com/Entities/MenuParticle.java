@@ -33,8 +33,8 @@ public class MenuParticle extends GameObject {
     }
     
     public void tick() {
-        x += velX;
-        y += velY;
+        x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after addition
         if (x <= 0 || x >= GameHandler.colWidth) {
             velX *= -1;
         }

@@ -30,8 +30,8 @@ public class Player extends GameObject {
     public void tick() {
     	velX = velLeft + velRight;
     	velY = velUp + velDown;
-        x += velX;
-        y += velY;
+        x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after addition
         x = (int) Game.clamp(x, 0, GameHandler.width - 49);
         y = (int) Game.clamp(y, 0, GameHandler.height - 72);
         collision();

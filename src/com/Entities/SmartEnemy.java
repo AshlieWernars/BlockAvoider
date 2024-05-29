@@ -32,8 +32,8 @@ public class SmartEnemy extends GameObject {
         double distance =  Math.sqrt((x - player.getX()) * (x - player.getX()) + (y - player.getY()) * (y - player.getY()));
         velX = (float) (-1.5 / distance * diffX);
         velY = (float) (-1.5 / distance * diffY);
-        x += velX;
-        y += velY;
+        x = (int) ((long)x + velX); // Explicit casting to int after addition
+        y = (int) ((long)y + velY); // Explicit casting to int after addition
         entityHandler.addObject(new Trail(x, y, col, boxSize, boxSize, 0.04f, entityHandler));
     }
     
