@@ -1,6 +1,7 @@
 package com.Render;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 import com.Handlers.GameHandler;
 import com.Main.Game;

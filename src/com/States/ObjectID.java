@@ -15,5 +15,5 @@ public enum ObjectID {
     Heart("Heart", 10),
 	MiniGunBoss("MiniGunBoss", 11);
     
-    private ObjectID(final String name, final int ordinal) {}
+	private ObjectID(final String name, final int ordinal) {}
 }

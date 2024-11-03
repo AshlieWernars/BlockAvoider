@@ -41,13 +41,13 @@ public class Spawner {
 			System.out.println("Level: " + GameHandler.getLevel());
 
 			if (game.difficulty == Difficulty.Easy) {
-				EasyDifficultyEnemySpawning.spawnEasy(r, game, this, entityHandler);
+				EasyDifficultyEnemySpawning.spawnEasy(r, this, entityHandler);
 			} else if (game.difficulty == Difficulty.Normal) {
-				NormalDifficultyEnemySpawning.spawnNormal(r, game, this, entityHandler);
+				NormalDifficultyEnemySpawning.spawnNormal(r, this, entityHandler);
 			} else if (game.difficulty == Difficulty.Hard) {
-				HardDifficultyEnemySpawning.spawnHard(r, game, this, entityHandler);
+				HardDifficultyEnemySpawning.spawnHard(r, this, entityHandler);
 			} else if (game.difficulty == Difficulty.FreeMode) {
-				FreeModeSpawning.spawnFreeMode(r, game, this, entityHandler);
+				FreeModeSpawning.spawnFreeMode(r, this, entityHandler);
 			}
 		}
 	}
@@ -59,7 +59,7 @@ public class Spawner {
 	}
 
 	public void spawnEnemyBoss() {
-		entityHandler.clearEnemys(false);
+		entityHandler.clearEnemies(false);
 		entityHandler.addObject(new EnemyBoss(GameHandler.width - (GameHandler.width / 2), 0, entityHandler, r));
 		setBossExists(true);
 		game.bossTimedText.setAlive(true);
@@ -67,13 +67,13 @@ public class Spawner {
 	}
 
 	public void deleteEnemyBoss() {
-		entityHandler.clearEnemys(false);
+		entityHandler.clearEnemies(false);
 		setBossExists(false);
 		game.bossTimedText.setAlive(false);
 	}
 
 	public void spawnMiniGunBoss() {
-		entityHandler.clearEnemys(false);
+		entityHandler.clearEnemies(false);
 		entityHandler.addObject(new MiniGunBoss(entityHandler, r));
 		setBossExists(true);
 		game.bossTimedText.setAlive(true);
@@ -81,7 +81,7 @@ public class Spawner {
 	}
 
 	public void deleteMiniGunBoss() {
-		entityHandler.clearEnemys(false);
+		entityHandler.clearEnemies(false);
 		setBossExists(false);
 		game.bossTimedText.setAlive(false);
 	}
@@ -102,7 +102,6 @@ public class Spawner {
 
 	public void gameEndLoss() {
 		endGame(true);
-		
 
 		if (game.difficulty == Difficulty.Easy) {
 			if (Integer.parseInt(GameHandler.saveFileData.get(2)) < GameHandler.getScore()) {
@@ -122,25 +121,25 @@ public class Spawner {
 			}
 		}
 	}
-	
+
 	private void endGame(boolean lost) {
 		heartSpawner.deleteHeart();
 		game.gameState = GameState.End;
 		GameHandler.setLevel(0);
-		entityHandler.clearEnemys(true);
+		entityHandler.clearEnemies(true);
 		GameHandler.setHealth(GameHandler.getMaxHealth());
 		game.bossTimedText.setAlive(false);
 		scoreKeep = 0;
 		setBossExists(false);
 		setLost(lost);
 	}
-	
+
 	public void endGame() {
 		game.gameState = GameState.Menu;
 		game.paused = false;
 		heartSpawner.deleteHeart();
 		GameHandler.setLevel(0);
-		entityHandler.clearEnemys(true);
+		entityHandler.clearEnemies(true);
 		GameHandler.setHealth(GameHandler.getMaxHealth());
 		game.bossTimedText.setAlive(false);
 		scoreKeep = 0;
