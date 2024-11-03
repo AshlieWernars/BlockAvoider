@@ -21,7 +21,6 @@ public class GameHandler {
 	private static int level = 0;
 	private static int score = 0;
 	private static float health = maxHealth;
-	public static int FPS = 0;
 	public static String saveFilePath = "SaveFile";
 
 	// Classes

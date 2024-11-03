@@ -1,9 +1,13 @@
 package com.Entities;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Random;
 
-import com.Handlers.*;
+import com.Handlers.EntityHandler;
+import com.Handlers.GameHandler;
+import com.Handlers.GameObject;
 import com.States.ObjectID;
 
 public class EnemyBoss extends GameObject {
@@ -24,22 +28,25 @@ public class EnemyBoss extends GameObject {
 		velY = 0;
 	}
 
+	@Override
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, BoxSize, BoxSize);
 	}
 
+	@Override
 	public void tick() {
 		if (x <= 0 || x >= GameHandler.width - BoxSize - 20) {
 			velX *= -1;
 		}
-		x = (int) ((long)x + velX); // Explicit casting to int after addition
-        y = (int) ((long)y + velY); // Explicit casting to int after additions
+		x = (int) (x + velX);
+		y = (int) (y + velY);
 		if (r.nextInt(10) == 0) {
 			entityHandler.addObject(new EnemyBossBullet(x + BoxSize / 2, y + BoxSize / 2, r.nextInt(10) - 5, 5, entityHandler));
 		}
 
 	}
 
+	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect(x, y, BoxSize, BoxSize);
