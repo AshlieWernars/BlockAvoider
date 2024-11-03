@@ -6,7 +6,7 @@ The project was made in the summer of 2020, and has been constantly updated over
 The game has now been made public for anyone to play! :)<br />
 
 Made with:<br />
-Java 17.0.10<br />
-Eclipse 2024-03<br />
+Java 17.0.12<br />
+Eclipse 2024-09<br />
 
 Tested on Linux Mint and Windows 10.<br />
