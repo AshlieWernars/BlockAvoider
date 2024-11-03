@@ -1,11 +1,18 @@
 package com.Main;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.util.Random;
 
 import com.EnemySpawning.Spawner;
-import com.Entities.*;
-import com.Handlers.*;
+import com.Entities.EasyEnemy;
+import com.Entities.HardEnemy;
+import com.Entities.NormalEnemy;
+import com.Entities.Player;
+import com.Handlers.EntityHandler;
+import com.Handlers.GameHandler;
+import com.Handlers.HeartSpawner;
 import com.States.Difficulty;
 import com.States.GameState;
 
@@ -32,7 +39,7 @@ public class Menu {
 		this.heartSpawner = heartSpawner;
 	}
 
-	public void MouseClicked(int MouseX, int MouseY) {
+	public void mouseClicked(int MouseX, int MouseY) {
 		if (game.gameState == GameState.Menu) {
 			if (mouseOver(MouseX, MouseY, 290, 210)) {
 				game.gameState = GameState.Select;
@@ -63,7 +70,7 @@ public class Menu {
 
 	private void startGame(Difficulty difficulty) {
 		System.out.println("Starting Game With Difficulty " + difficulty);
-		handler.clearEnemys(false);
+		handler.clearEnemies(false);
 		handler.setPlayer(new Player(GameHandler.colWidth - (GameHandler.colWidth / 2), GameHandler.colHeight - (GameHandler.colHeight / 2), handler));
 		if (difficulty == Difficulty.Easy) {
 			handler.addObject(new EasyEnemy(r.nextInt(GameHandler.colWidth), r.nextInt(GameHandler.colHeight), handler));

@@ -30,6 +30,7 @@ public class Input implements KeyListener, MouseListener {
 		this.spawner = spawner;
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
 		if (game.gameState == GameState.Game) {
 			if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
@@ -85,6 +86,7 @@ public class Input implements KeyListener, MouseListener {
 		}
 	}
 
+	@Override
 	public void keyReleased(KeyEvent e) {
 		if (game.gameState == GameState.Game) {
 			if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
@@ -102,19 +104,35 @@ public class Input implements KeyListener, MouseListener {
 		}
 	}
 
+	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1) {
-			menu.MouseClicked(e.getX(), e.getY());
+			menu.mouseClicked(e.getX(), e.getY());
 		}
 	}
 
-	public void mouseReleased(MouseEvent e) {}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// Not used
+	}
 
-	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// Not used
+	}
 
-	public void mouseExited(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// Not used
+	}
 
-	public void mouseClicked(MouseEvent e) {}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// Not used
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// Not used
+	}
 }

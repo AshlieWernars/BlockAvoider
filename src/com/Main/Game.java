@@ -18,18 +18,19 @@ import com.Render.HUD;
 import com.States.Difficulty;
 import com.States.GameState;
 
-@SuppressWarnings("serial")
 public class Game extends Canvas {
 
 	// Pre-Defined Var's
-	public TimedText bossTimedText = new TimedText("BOSS SPAWNED", 300, Color.RED, new Font("Verdana", Font.BOLD, 20), 350, 280);
-	public TimedText healthRestoreTimedText = new TimedText("HEALTH RESTORED", 300, Color.RED, new Font("Verdana", Font.BOLD, 20), 350, 280);
+	private static final long serialVersionUID = -9082567142824089584L;
+	public final TimedText bossTimedText = new TimedText("BOSS SPAWNED", 300, Color.RED, new Font("Verdana", Font.BOLD, 20), 350, 280);
+	public final TimedText healthRestoreTimedText = new TimedText("HEALTH RESTORED", 300, Color.RED, new Font("Verdana", Font.BOLD, 20), 350, 280);
 
 	// Var
 	private int FPS;
 	public boolean paused;
 
 	// Classes
+	private final Font font = new Font("Verdana", 1, 15);
 	private final Random r = new Random();
 	private final HUD hud = new HUD();
 	private final EntityHandler entityHandler = new EntityHandler(r, this);
@@ -41,6 +42,7 @@ public class Game extends Canvas {
 	public GameState gameState = GameState.Menu;
 	public Difficulty difficulty;
 
+	@SuppressWarnings("unused")
 	public Game() {
 		// InputListeners
 		this.addKeyListener(input);
@@ -54,7 +56,7 @@ public class Game extends Canvas {
 			entityHandler.addObject(new MenuParticle(r.nextInt(GameHandler.spawnWidth), r.nextInt(GameHandler.spawnHeight), entityHandler, r));
 		}
 
-		new Display(GameHandler.windowTitle, this, input);
+		new Display(GameHandler.windowTitle, this);
 		run();
 	}
 
@@ -118,7 +120,7 @@ public class Game extends Canvas {
 
 		// FPS Printing
 		g.setColor(Color.green);
-		g.setFont(new Font("Verdana", 1, 15));
+		g.setFont(font);
 		g.drawString("FPS: " + FPS, 5, 15);
 
 		entityHandler.render(g);
@@ -152,6 +154,7 @@ public class Game extends Canvas {
 		return var;
 	}
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		new Game();
 	}
