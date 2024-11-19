@@ -1,12 +1,24 @@
-# BlockAvoider
-The first Java 2D Game I made, called Block Avoider.<br />
-The project is based upon a Youtube tutorial series from [RealTutsGML](https://www.youtube.com/playlist?list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa).<br />
-I have added extra difficulties and improved the overall perfomance<br />
-The project was made in the summer of 2020, and has been constantly updated over the last years.<br />
-The game has now been made public for anyone to play! :)<br />
+Block Avoider
 
-Made with:<br />
-Java 17.0.12<br />
-Eclipse 2024-09<br />
+Block Avoider is the first Java 2D game I created, inspired by the RealTutsGML YouTube tutorial series. Over the years, I have enhanced the game with extra difficulties, performance improvements, and regular updates since its initial development in the summer of 2020.
 
-Tested on Linux Mint and Windows 10.<br />
+The game is now publicly available for everyone to play! 🎮
+Features
+
+    Dynamic Difficulty Levels: Engage with added challenges for enhanced gameplay.
+    Optimized Performance: Experience smoother gameplay with improved code and mechanics.
+    Cross-Platform Support: Fully tested on Linux Mint and Windows 10.
+
+Built With
+
+    Java: Version 17.0.13
+    IDE: Eclipse 2024-09
+
+How to Play
+
+	Dodge the bouncing enemies!
+	The enemies move like in Pong, bouncing off the edges of the screen. 
+	Move quickly and strategically to avoid getting hit and achieve the highest score possible.
+
+Feel free to report any issues or share your feedback.
+Happy gaming! 😊
