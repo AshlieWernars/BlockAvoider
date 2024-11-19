@@ -3,6 +3,7 @@ Block Avoider
 Block Avoider is the first Java 2D game I created, inspired by the RealTutsGML YouTube tutorial series. Over the years, I have enhanced the game with extra difficulties, performance improvements, and regular updates since its initial development in the summer of 2020.
 
 The game is now publicly available for everyone to play! 🎮
+
 Features
 
     Dynamic Difficulty Levels: Engage with added challenges for enhanced gameplay.
