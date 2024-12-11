@@ -23,3 +23,7 @@ How to Play
 
 Feel free to report any issues or share your feedback.
 Happy gaming! 😊
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
