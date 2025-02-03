@@ -1,6 +1,6 @@
 package com.Handlers;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,9 +31,9 @@ public class EntityHandler {
 		}
 	}
 
-	public void render(Graphics g) {
-		for (int i = 0; i < ObjectList.size(); i++) {
-			ObjectList.get(i).render(g);
+	public void render(Graphics2D g) {
+		for (GameObject object : ObjectList) {
+			object.render(g);
 		}
 		if (game.gameState == GameState.Game) {
 			player.render(g);

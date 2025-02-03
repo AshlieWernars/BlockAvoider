@@ -1,7 +1,7 @@
 package com.Entities;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import com.Handlers.EntityHandler;
@@ -42,10 +42,6 @@ public class Player extends GameObject {
 	}
 
 	private void collision() {
-		if (GameHandler.godMode) {
-			return;
-		}
-
 		for (GameObject tempObject : entityHandler.getObjectList()) {
 			if (tempObject.getBounds() == null) {
 				continue;
@@ -64,7 +60,7 @@ public class Player extends GameObject {
 	}
 
 	@Override
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, BoxSize, BoxSize);
 	}

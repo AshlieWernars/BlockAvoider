@@ -7,7 +7,6 @@ import java.awt.event.MouseListener;
 
 import com.EnemySpawning.Spawner;
 import com.Handlers.EntityHandler;
-import com.Handlers.GameHandler;
 import com.Main.Game;
 import com.Main.Menu;
 import com.States.GameState;
@@ -63,25 +62,6 @@ public class Input implements KeyListener, MouseListener {
 				game.gameState = GameState.Menu;
 			} else if (game.gameState == GameState.Menu) {
 				System.exit(1);
-			}
-		}
-
-		// TODO: Disable This Before A Release Build
-		if (e.getKeyCode() == KeyEvent.VK_E) {
-			GameHandler.setLevel(GameHandler.getLevel() + 5);
-			System.err.println("*DEBUG* " + "LEVEL SET TO " + GameHandler.getLevel());
-		}
-		if (e.getKeyCode() == KeyEvent.VK_Q) {
-			GameHandler.setHealth(GameHandler.getMaxHealth());
-			System.err.println("*DEBUG* " + "RESET HEALTH TO MAX");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_G) {
-			if (GameHandler.godMode) {
-				GameHandler.godMode = false;
-				System.err.println("*Debug* GodMode Disabled");
-			} else if (!GameHandler.godMode) {
-				GameHandler.godMode = true;
-				System.err.println("*Debug* GodMode Enabled");
 			}
 		}
 	}

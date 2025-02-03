@@ -1,7 +1,7 @@
 package com.Render;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import com.Handlers.GameHandler;
 import com.Main.Game;
@@ -18,7 +18,7 @@ public class HUD {
 		greenValue = GameHandler.getHealth() * 2;
 	}
 
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		g.setColor(Color.gray);
 		g.fillRect(HealthBarLocation, HealthBarLocation, 200, 32);
 		g.setColor(new Color(75, (int) greenValue, 0));

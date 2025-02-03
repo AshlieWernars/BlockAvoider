@@ -2,7 +2,7 @@ package com.Main;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Random;
 
 import com.EnemySpawning.Spawner;
@@ -92,7 +92,7 @@ public class Menu {
 	}
 
 	// All Menu's UI
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		if (game.gameState == GameState.Menu) {
 			// Menu Title
 			g.setFont(fnt);

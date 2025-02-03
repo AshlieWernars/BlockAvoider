@@ -1,7 +1,7 @@
 package com.Entities;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Random;
 
@@ -51,7 +51,7 @@ public class MenuParticle extends GameObject {
 	}
 
 	@Override
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		g.setColor(col);
 		g.fillRect(x, y, boxSize, boxSize);
 	}

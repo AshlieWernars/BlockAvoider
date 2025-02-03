@@ -1,8 +1,12 @@
 package com.Entities;
 
-import java.awt.*;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
-import com.Handlers.*;
+import com.Handlers.EntityHandler;
+import com.Handlers.GameObject;
 import com.States.ObjectID;
 
 public class Trail extends GameObject {
@@ -35,12 +39,11 @@ public class Trail extends GameObject {
 	}
 
 	@Override
-	public void render(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setComposite(makeTransparent(alpha));
+	public void render(Graphics2D g) {
+		g.setComposite(makeTransparent(alpha));
 		g.setColor(color);
 		g.fillRect(x, y, width, height);
-		g2d.setComposite(makeTransparent(1));
+		g.setComposite(makeTransparent(1));
 	}
 
 	private AlphaComposite makeTransparent(float alpha) {

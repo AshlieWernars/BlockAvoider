@@ -16,7 +16,6 @@ public class GameHandler {
 	public static final int FPSCAP = 60;
 	public static final int maxHealth = 100;
 
-	public static boolean godMode = false;
 	public static boolean paused = false;
 	private static int level = 0;
 	private static int score = 0;

@@ -1,6 +1,6 @@
 package com.Handlers;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Random;
 
 import com.Entities.Heart;
@@ -15,8 +15,8 @@ public class HeartSpawner {
 
 	// Var
 	public int timer; // How long it take before a heart spawns
-	int timer2 = timer2MaxTime; // How long a Heart stays
-	boolean doesHeartExist = false;
+	private int timer2 = timer2MaxTime; // How long a Heart stays
+	private boolean doesHeartExist = false;
 
 	// Classes
 	private Heart heart;
@@ -45,7 +45,7 @@ public class HeartSpawner {
 		}
 	}
 
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		if (GameHandler.getLevel() >= MinHeartSpawnLevel && DoesHeartexist()) {
 			heart.render(g);
 		}

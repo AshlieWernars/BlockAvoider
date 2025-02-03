@@ -2,7 +2,7 @@ package com.Main;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class TimedText {
 
@@ -40,7 +40,7 @@ public class TimedText {
 		}
 	}
 
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		if (alive) {
 			g.setColor(color);
 			g.setFont(font);
