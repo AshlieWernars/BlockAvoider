@@ -142,15 +142,7 @@ public class Game extends Canvas {
 	}
 
 	public static float clamp(float var, float min, float max) {
-		if (var > max) {
-			var = max;
-			return max;
-		}
-		if (var < min) {
-			var = min;
-			return min;
-		}
-		return var;
+		return Math.max(min, Math.min(max, var));
 	}
 
 	@SuppressWarnings("unused")
