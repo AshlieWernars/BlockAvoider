@@ -3,7 +3,8 @@ package com.Main;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
@@ -38,7 +39,6 @@ public class Game extends Canvas {
 	private final Spawner spawner = new Spawner(entityHandler, this, r, heartSpawner);
 	private final Menu menu = new Menu(this, entityHandler, spawner, r, heartSpawner);
 	private final Input input = new Input(entityHandler, menu, this, spawner);
-	// public final AudioPlayer backGroundMusic = new AudioPlayer("res/Music.wav");
 	public GameState gameState = GameState.Menu;
 	public Difficulty difficulty;
 
@@ -47,9 +47,6 @@ public class Game extends Canvas {
 		// InputListeners
 		this.addKeyListener(input);
 		this.addMouseListener(input);
-
-		// backGroundMusic.setVolume(-20f);
-		// backGroundMusic.start();
 
 		// MenuParticles
 		for (int i = 0; i < 25; ++i) {
@@ -109,10 +106,12 @@ public class Game extends Canvas {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
 			this.createBufferStrategy(3);
-			bs = this.getBufferStrategy();
+			return;
 		}
 
-		Graphics g = bs.getDrawGraphics();
+		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 		// Background Rendering
 		g.setColor(Color.black);
@@ -134,7 +133,7 @@ public class Game extends Canvas {
 				g.setColor(Color.cyan);
 				g.drawString("PAUSED", 350, 90);
 			}
-		} else if (gameState != GameState.Game) {
+		} else {
 			menu.render(g);
 		}
 
